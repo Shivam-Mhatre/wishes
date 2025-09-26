@@ -1,0 +1,172 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="style2.css" rel="stylesheet">
+  <title>Anniversary</title>
+</head>
+<body>
+
+  <h2>FOR YOU🫶</h2>
+  
+  <div class="slider">
+    <div class="slide">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="WhatsApp Image 2025-04-29 at 23.32.23_024cf7bd.jpg" alt="Wish 1">
+          </div>
+          <div class="flip-card-back">
+            <div class="caption">A sweet moment just for you </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <video>
+              <source src="swimming.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            
+          </div>
+          <div class="flip-card-back">
+            <div class="caption">A sweet moment just for you</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="slide">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="WhatsApp Image 2025-04-29 at 23.32.23_82d078ac.jpg" alt="Wish 2">
+          </div>
+          <div class="flip-card-back">
+            <div class="caption">A sweet moment just for you </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="caption"></div> -->
+    </div>
+    <div class="slide">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <video>
+              <source src="WhatsApp Video 2025-04-29 at 23.32.29_d201e91a.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            
+          </div>
+          <div class="flip-card-back">
+            <div class="caption">A sweet moment just for you</div>
+          </div>
+        </div>
+
+      </div>
+      
+    </div>
+    <div class="slide">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="handheart.jpg" alt="Wish 2">
+          </div>
+          <div class="flip-card-back">
+            <div class="caption">A sweet moment just for you</div>
+          </div>
+        </div>
+      </div> 
+    </div>
+  </div>
+  <div class="nav-buttons">
+    <button onclick="window.location.href='surprise.html'" id="prevBtn">⬅ Back</button>
+    <!--<button onclick="moveSlide(1)" id="nextBtn">Next ➡</button>-->
+    <button onclick="window.location.href='giftbox.html'" id="nextBtn">Next ➡</button>
+  </div>
+  
+  <script>
+    const slider = document.getElementById("slider");
+    const totalSlides = slider.children.length;
+    let currentIndex = 0;
+
+    function updateButtons() {
+      document.getElementById("prevBtn").disabled = currentIndex === 0;
+      document.getElementById("nextBtn").disabled = currentIndex === totalSlides - 1;
+    }
+
+    function moveSlide(direction) {
+      currentIndex += direction;
+      if (currentIndex < 0) currentIndex = 0;
+      if (currentIndex >= totalSlides) currentIndex = totalSlides - 1;
+
+      const slideWidth = slider.clientWidth;
+      slider.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+
+      updateButtons();
+    }
+
+    updateButtons();
+    window.addEventListener("resize", () => {
+      // Reset transform on resize to match slide width
+      slider.style.transform = `translateX(-${slider.clientWidth * currentIndex}px)`;
+    });
+
+  </script>
+  <!-- <script>
+    document.querySelectorAll('.flip-card').forEach(card => {
+      card.addEventListener('contextmenu', function (e) {
+        e.preventDefault(); // Prevent default right-click
+  
+        const video = this.querySelector('video');
+  
+        if (video) {
+          // If it's a video, play/pause it
+          if (video.paused) {
+            video.play();
+          } else {
+            video.pause();
+          }
+        }
+  
+        // Flip the card
+        this.classList.toggle('flipped');
+      });
+    });
+  </script> -->
+  <script>
+    document.querySelectorAll('.flip-card').forEach(card => {
+      const video = card.querySelector('video');
+  
+      // LEFT click: play/pause video
+      if (video) {
+        video.addEventListener('click', function (e) {
+          e.stopPropagation(); // Prevent bubbling
+          if (video.paused) {
+            video.play();
+          } else {
+            video.pause();
+          }
+        });
+      }
+  
+      // RIGHT click: flip card
+      card.addEventListener('contextmenu', function (e) {
+        e.preventDefault(); // Prevent default right-click
+        this.classList.toggle('flipped');
+      });
+    });
+  </script>
+  
+  
+  
+  
+
+</body>
+</html>

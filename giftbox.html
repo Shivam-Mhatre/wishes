@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gift Box</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffe0f0, #fff0f5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .gift-container {
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .gift-container:hover {
+      transform: scale(1.05);
+    }
+
+    .gift-box {
+      width: 180px;
+      height: 180px;
+      background: linear-gradient(to bottom, #ff69b4, #ff1493);
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ribbon-horizontal,
+    .ribbon-vertical {
+      background: white;
+      position: absolute;
+    }
+
+    .ribbon-horizontal {
+      height: 20px;
+      width: 100%;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+
+    .ribbon-vertical {
+      width: 20px;
+      height: 100%;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+    }
+
+    .gift-lid {
+      position: absolute;
+      width: 200px;
+      height: 50px;
+      background: linear-gradient(to bottom, #ff1493, #ff69b4);
+      top: -50px;
+      left: -10px;
+      border-radius: 16px 16px 0 0;
+      animation: bounceLid 2s infinite;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    @keyframes bounceLid {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(8px);
+      }
+    }
+
+    .gift-text {
+      position: absolute;
+      bottom: -40px;
+      width: 100%;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      color: #d63384;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="gift-container" onclick="window.location.href='message.html'">
+    <div class="gift-box">
+      <div class="ribbon-horizontal"></div>
+      <div class="ribbon-vertical"></div>
+    </div>
+    <div class="gift-lid"></div>
+    <div class="gift-text">Click Me 🎁</div>
+  </div>
+
+</body>
+</html>
